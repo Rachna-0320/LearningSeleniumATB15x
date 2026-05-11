@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/somdevyadav/IdeaProjects/LearningSeleniumATB15x">
+        <classes>
+            <class name="org.thetesting.TestSelenium03_Basic">
+                <methods>
+                    <include name="test1"/>
+                </methods>
+            </class>
+            <class name="org.thetesting.TestSelenium04_Practice">
+                <methods>
+                    <include name="testDemoApp"/>
+                </methods>
+            </class>
+            <class name="org.thetesting.TestSelenium05">
+                <methods>
+                    <include name="testOpenGoogle"/>
+                </methods>
+            </class>
+            <class name="org.thetesting.TestSelenium06">
+                <methods>
+                    <include name="test_01"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
