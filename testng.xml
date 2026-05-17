@@ -23,6 +23,12 @@
                     <include name="test_01"/>
                 </methods>
             </class>
+
+            <class name="org.thetesting.TestSelenium_Locators">
+                <methods>
+                    <include name="testLocators"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
