@@ -7,22 +7,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-    public class TestSeleniumIsDisplayed {
+    public class TestSeleniumIsEnabled {
+
         @Test
-        public void verifyElementDisplayed() {
+        public void verifyButtonEnabled() {
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get("https://app.vwo.com");
-
             WebElement loginButton = driver.findElement(By.id("js-login-btn"));
 
             // Validation
-            Assert.assertTrue(loginButton.isDisplayed());
-            System.out.println("Login button is displayed!");
+            Assert.assertTrue(loginButton.isEnabled());
+            System.out.println("Login button is enabled!");
 
             driver.quit();
         }
     }
 
-
-    
