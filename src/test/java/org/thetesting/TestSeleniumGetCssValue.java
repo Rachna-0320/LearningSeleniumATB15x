@@ -4,29 +4,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-    public class TestSeleniumClear {
+    public class TestSeleniumGetCssValue {
+
         @Test
-        public void verifyClearMethod() {
+        public void verifyButtonColor() {
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get("https://app.vwo.com");
-            WebElement emailInput = driver.findElement(By.id("login-username"));
+            WebElement loginButton = driver.findElement(By.id("js-login-btn"));
 
-            // Enter text
-            emailInput.sendKeys("admin@admin.com");
-
-            // Clear text
-            emailInput.clear();
+            // Get CSS Value
+            String buttonColor = loginButton.getCssValue("background-color");
+            System.out.println(buttonColor);
 
             // Validation
-            Assert.assertEquals(emailInput.getAttribute("value"), "");
-            System.out.println("Input field cleared successfully!");
+            Assert.assertNotNull(buttonColor);
 
             driver.quit();
         }
     }
+
 
 

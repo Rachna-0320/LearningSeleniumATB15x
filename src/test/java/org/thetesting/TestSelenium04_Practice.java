@@ -13,7 +13,8 @@ public class TestSelenium04_Practice {
         driver.get("https://katalon-demo-cura.herokuapp.com");
 
         String  actualTitle = driver.getTitle();
-       Assert.assertEquals(actualTitle, "CURA Healthcare Service");
+        System.out.println(actualTitle );
+        Assert.assertEquals(actualTitle, "CURA Healthcare Service");
        driver.quit();
     }
 
