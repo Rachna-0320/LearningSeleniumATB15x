@@ -2,15 +2,13 @@ package org.thetesting;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.util.List;
 
-    public class TestSauceDemoProducts {
+    public class TestSauceDemoAddToCart {
         @Test
-        public void verifyProductsCount() {
+        public void verifyAddToCart() {
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get("https://www.saucedemo.com/");
@@ -25,16 +23,17 @@ import java.util.List;
             driver.findElement(By.id("login-button"))
                     .click();
 
-            // Get all products
-            List<WebElement> products =
-                    driver.findElements(By.className("inventory_item"));
-            System.out.println("Total Products: " + products.size());
+            // Add first product to cart
+            driver.findElement(By.id("add-to-cart-sauce-labs-backpack"))
+                    .click();
 
-            // Validation
-            Assert.assertEquals(products.size(), 6);
+            // Verify cart badge count
+            String cartCount = driver.findElement(By.className("shopping_cart_badge"))
+                    .getText();
+            System.out.println("Cart Count: " + cartCount);
+
+            Assert.assertEquals(cartCount, "1");
             driver.quit();
         }
     }
 
-
-    
