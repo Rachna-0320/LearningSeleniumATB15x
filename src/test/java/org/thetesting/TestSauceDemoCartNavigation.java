@@ -2,14 +2,13 @@ package org.thetesting;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestSauceDemoProductPrice {
+public class TestSauceDemoCartNavigation {
     @Test
-    public void verifyProductPrice() {
+    public void verifyCartNavigation() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
@@ -24,20 +23,18 @@ public class TestSauceDemoProductPrice {
         driver.findElement(By.id("login-button"))
                 .click();
 
-        // Get first product price
-        WebElement productPrice =
-                driver.findElement(By.className("inventory_item_price"));
+        // Open Cart
+        driver.findElement(By.className("shopping_cart_link"))
+                .click();
 
-        String actualPrice = productPrice.getText();
+        // Verify Cart Page Title
+        String cartTitle =
+                driver.findElement(By.className("title")).getText();
 
-        System.out.println("Product Price: " + actualPrice);
-
-        // Validation
-        Assert.assertEquals(actualPrice, "$29.99");
+        System.out.println("Page Title: " + cartTitle);
+        Assert.assertEquals(cartTitle, "Your Cart");
         driver.quit();
     }
 }
-
-
 
 
